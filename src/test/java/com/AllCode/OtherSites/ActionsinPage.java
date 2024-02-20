@@ -72,6 +72,10 @@ package com.AllCode.OtherSites;
 				  }
 				  
 		    	}
+		 
+//		 public void NetworkReset() {
+//			 
+//		 }
 		    	
 		    	
 		 public  void FalseClickInRef(String url,String browser, int Stime) throws AWTException, IOException, InterruptedException, URISyntaxException {

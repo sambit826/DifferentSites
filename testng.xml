@@ -5,6 +5,6 @@
 	  <classes>
 		 <class name="com.AllCode.OtherSites.DataFromSheet"/>
        <parameter name="SheetName" value="Sheet1"></parameter>
-    </classes>
+    </classes> 
   </test> <!-- Test -->
 </suite> <!-- Suite -->

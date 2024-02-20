@@ -31,7 +31,7 @@ package com.AllCode.OtherSites;
 		    @Test
 		public  void ExcelSheetData(String SheetName) throws EncryptedDocumentException, IOException {
 			try {
-			FileInputStream fis=new FileInputStream("src\\test\\resources\\ClientData2.xlsx");
+			FileInputStream fis=new FileInputStream("src\\test\\resources\\ClientData.xlsx");
 			Workbook book=WorkbookFactory.create(fis);
 			Sheet sh=book.getSheet(SheetName);
 			//int CellCount=sh.getLeftCol();
@@ -42,7 +42,7 @@ package com.AllCode.OtherSites;
 			for(int i=1;i<=sh.getLastRowNum();i++) {
 				urls.clear();
 			System.out.println(i);
-				System.out.println(sh.getLastRowNum());
+				System.out.println("Last row num--"+sh.getLastRowNum());
 				 row = sh.getRow(i);
 			 int CellCount=row.getPhysicalNumberOfCells();
 					 System.out.println(CellCount);
@@ -59,6 +59,10 @@ package com.AllCode.OtherSites;
 		      Stime=Range(max,min);
 		      System.out.println("Stime is:"+Stime);
 		     System.out.println(SerachKeyword);
+		     BrowserSelection reset = new BrowserSelection();
+		     reset.NetworkDisable();
+		     sleep(3);
+		     //reset.NetworkEnable();
 		     browserValue(browser);
 		     System.out.println("Browser opened is:"+browser);
 		   // PassValueToSearchBox(SerachKeyword, SearchUrl, browser, Stime);
@@ -77,10 +81,13 @@ package com.AllCode.OtherSites;
 		     //count=urls.size()+1;
 		    PassValueToSearchBox(SerachKeyword, SearchUrl, browser, Stime,urls);
 		    // FalseClickInBase(SearchUrl, urls, browser, Stime);
-		     
+		     sleep(1);
 		     ClosingBrowserPages();
+		     sleep(1);
+		     System.out.println("ClosingbrowserPages is executed");
 	    ClearCookiesAndCache();
-	   // NetworkReset();
+	    System.out.println("ClearedCookiesAndCache is executed");
+	    //NetworkReset();
 		   //browserValue(browser,SerachKeyword);
 		 System.out.println("Completed row num is:"+i);
 			

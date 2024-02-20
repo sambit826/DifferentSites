@@ -37,12 +37,12 @@ public class SearchClearClose  extends ActionsinPage{
 	public  void PassValueToSearchBox( String SerachKeyword,String SearchUrl,String browser,int Stime, List<String> urls) throws AWTException, InterruptedException, IOException {
 		try {
 				        Robot robot = new Robot();
-				        Thread.sleep(4000);
-				        Thread.sleep(5000);
+				       // Thread.sleep(4000);
+				       // Thread.sleep(5000);
 				        for (char c : SerachKeyword.toCharArray()) {
-				            robot.delay(1000);
+				            //robot.delay(1000);
 				            int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
-				            robot.delay(2000);
+				            robot.delay(3000);
 				            robot.keyPress(keyCode);
 				            robot.keyRelease(keyCode);
 				        }
@@ -89,7 +89,7 @@ public class SearchClearClose  extends ActionsinPage{
 			 
 			    	try {
 					System.out.println("it will clear the cookies and cache of the browser");
-					Thread.sleep(1000);
+					sleep(1);
 					Robot r1=new Robot();
 			    	r1.keyPress(KeyEvent.VK_CONTROL);
 			    	r1.keyPress(KeyEvent.VK_SHIFT);
@@ -102,7 +102,8 @@ public class SearchClearClose  extends ActionsinPage{
 			    	r1.keyRelease(KeyEvent.VK_ENTER);
 			    	count=1;
 			    	while(count>=0) {
-			    		System.out.println(count);
+			    		System.out.println("count-"+count);
+			    		sleep(1);
 			    	r1.keyPress(KeyEvent.VK_CONTROL);
 					r1.keyPress(KeyEvent.VK_W);
 				    r1.keyRelease(KeyEvent.VK_CONTROL);
@@ -116,11 +117,21 @@ public class SearchClearClose  extends ActionsinPage{
 			    	}
 			    		
 			    	}
+			 public void sleep(int timeInSeconds) {
+					try {
+						Thread.sleep(timeInSeconds * 1000);
+						System.out.println("sleeping for--"+timeInSeconds+"seconds");
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 			 
 			 public void ClosingBrowserPages() throws AWTException {
 				 System.out.println("Count in ClosingBrowserPages is:"+count);
 					try {
 					System.out.println("All opened tabs will be closed now");
+					Thread.sleep(2000);
 					//Robot r2=new Robot();
 					Robot r=new Robot();
 					System.out.println(count);
@@ -130,11 +141,11 @@ public class SearchClearClose  extends ActionsinPage{
 					r.keyPress(KeyEvent.VK_W);
 				    r.keyRelease(KeyEvent.VK_CONTROL);
 				    r.keyRelease(KeyEvent.VK_W);
-				    r.delay(1000);
+				    sleep(1);
 				    count--;
 				    
 				    
-					System.out.println("Closing ");
+					System.out.println("Closing the browser ");
 					
 					// TODO Auto-generated method stub
 					}
